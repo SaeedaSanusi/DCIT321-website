@@ -1,12 +1,13 @@
 import React from 'react';
 import './Navbar.css';
+import logo from '../assets/ArtistryAlley logo.jpeg';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <div className="logo">
-          <img src="/behance-logo.svg" alt="Behance" />
+          <img src={logo} alt="ArtistryAlley" />
         </div>
         
         <div className="nav-items">
@@ -14,8 +15,8 @@ const Navbar = () => {
             Explore <span className="dropdown-arrow">▼</span>
           </button>
           <a href="/jobs">Jobs</a>
-          <a href="/behance" className="behance-link">
-            Behance <span className="pro-badge">PRO</span>
+          <a href="/artistryalley" className="artistryalley-link">
+            ArtistryAlley <span className="pro-badge">PRO</span>
           </a>
         </div>
       </div>

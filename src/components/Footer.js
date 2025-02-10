@@ -8,6 +8,8 @@ import {
   faFacebookF, 
   faLinkedinIn 
 } from '@fortawesome/free-brands-svg-icons';
+// Import only the ArtistryAlley logo
+import logo from '../assets/ArtistryAlley logo.jpeg';
 
 const Footer = () => {
   return (
@@ -15,7 +17,7 @@ const Footer = () => {
       <div className="footer-content">
         {/* Logo Section */}
         <div className="footer-logo">
-          <img src="/behance-logo-white.svg" alt="Behance" />
+          <img src={logo} alt="ArtistryAlley" />
         </div>
 
         {/* Main Footer Links */}
@@ -23,7 +25,7 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Built For Creatives</h3>
             <ul>
-              <li><a href="/pro">Try Behance Pro</a></li>
+              <li><a href="/pro">Try ArtistryAlley Pro</a></li>
               <li><a href="/inspiration">Find Inspiration</a></li>
               <li><a href="/jobs">Get Hired</a></li>
               <li><a href="/assets">Sell Creative Assets</a></li>
@@ -44,10 +46,10 @@ const Footer = () => {
           </div>
 
           <div className="footer-column">
-            <h3>Behance</h3>
+            <h3>ArtistryAlley</h3>
             <ul>
-              <li><a href="/about">About Behance</a></li>
-              <li><a href="/portfolio">Adobe Portfolio</a></li>
+              <li><a href="/about">About ArtistryAlley</a></li>
+              <li><a href="/portfolio">Creative Portfolio</a></li>
               <li><a href="/app">Download the App</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/careers">Careers</a></li>
@@ -72,9 +74,8 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <div className="adobe-logo">
-            <img src="/adobe-logo.svg" alt="Adobe" />
-            <span>© 2025 Adobe Inc. All rights reserved.</span>
+          <div className="copyright">
+            <span>© 2025 ArtistryAlley Inc. All rights reserved.</span>
           </div>
           <div className="footer-bottom-links">
             <select className="language-select">
