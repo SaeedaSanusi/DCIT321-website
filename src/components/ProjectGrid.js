@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './ProjectGrid.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faEye } from '@fortawesome/free-solid-svg-icons';
@@ -86,20 +86,15 @@ const ProjectGrid = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Infinite scroll handler
-  const handleScroll = () => {
+  // Move handleScroll into useCallback
+  const handleScroll = useCallback(() => {
     if (
       window.innerHeight + document.documentElement.scrollTop
       === document.documentElement.offsetHeight
     ) {
       loadMore();
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, []); // Empty dependency array since it doesn't use any external values
 
   const loadMore = () => {
     setLoading(true);
@@ -108,6 +103,11 @@ const ProjectGrid = () => {
       setLoading(false);
     }, 1000);
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]); // Add handleScroll as a dependency
 
   return (
     <div className="project-grid-container">

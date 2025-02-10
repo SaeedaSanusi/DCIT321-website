@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/ArtistryAlley logo.jpeg';
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -11,13 +14,18 @@ const Navbar = () => {
         </div>
         
         <div className="nav-items">
-          <button className="explore-btn">
+          <Link 
+            to="/" 
+            className={`explore-btn ${location.pathname === '/' ? 'active' : ''}`}
+          >
             Explore <span className="dropdown-arrow">▼</span>
-          </button>
-          <a href="/jobs">Jobs</a>
-          <a href="/artistryalley" className="artistryalley-link">
-            ArtistryAlley <span className="pro-badge">PRO</span>
-          </a>
+          </Link>
+          <Link 
+            to="/jobs" 
+            className={`nav-link ${location.pathname === '/jobs' ? 'active' : ''}`}
+          >
+            Jobs
+          </Link>
         </div>
       </div>
 
@@ -30,9 +38,6 @@ const Navbar = () => {
         </div>
         <button className="login-btn">Log In</button>
         <button className="signup-btn">Sign Up</button>
-        <div className="adobe-logo">
-          <img src="/adobe-logo.svg" alt="Adobe" />
-        </div>
       </div>
     </nav>
   );

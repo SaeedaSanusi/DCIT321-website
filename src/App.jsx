@@ -1,17 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import SearchBar from './components/SearchBar';
+import SearchSection from './components/SearchSection';
 import ProjectGrid from './components/ProjectGrid';
+import JobsList from './components/JobsList/JobsList';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <SearchBar />
-      <ProjectGrid />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <SearchSection />
+              <ProjectGrid />
+            </>
+          } />
+          <Route path="/jobs" element={<JobsList />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
